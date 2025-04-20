@@ -5,7 +5,7 @@
 #include "buffer.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <backup.h>
+#include "backup.h"
 int main(int argc, char *argv[]) {
     enableRawMode();
     initEditor();
