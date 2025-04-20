@@ -114,6 +114,7 @@ void editorProcessKeypress() {
             write(STDOUT_FILENO, "\x1b[2J", 4);
             write(STDOUT_FILENO, "\x1b[H", 3);
             exit(0);
+            if (E.backup_path) free(E.backup_path);
             break;
             
         case CTRL_KEY('s'):
