@@ -191,12 +191,9 @@ char *editorRowsToString(int *buflen) {
 void editorOpen(char *filename) {
     free(E.filename);
     E.filename = strdup(filename);
-    
     editorSelectSyntaxHighlight();
-    
     FILE *fp = fopen(filename, "r");
     if (!fp) die("fopen");
-    
     char *line = NULL;
     size_t linecap = 0;
     ssize_t linelen;
@@ -208,7 +205,9 @@ void editorOpen(char *filename) {
     free(line);
     fclose(fp);
     E.dirty = 0;
+    editorCreateBackup();
 }
+
 
 void editorSave() {
     if (E.filename == NULL) {
