@@ -7,6 +7,7 @@
 #include <termios.h>
 #include <errno.h>
 #include <string.h>
+#include "backup.h"
 
 void die(const char *s) {
     write(STDOUT_FILENO, "\x1b[2J", 4);
@@ -60,9 +61,12 @@ void initEditor() {
     E.filename = NULL;
     E.statusmsg[0] = '\0';
     E.statusmsg_time = 0;
-    E.syntax = 0;
-    
+    E.syntax = NULL;
+    E.mode = 1;
+    E.backup_path = NULL;
     if (getWindowSize(&E.screenrows, &E.screencols) == -1) die("getWindowSize");
     E.screenrows -= 2;
+    initBackupSystem();
 }
+
 
