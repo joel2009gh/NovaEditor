@@ -50,7 +50,10 @@ struct editorConfig {
     time_t statusmsg_time;
     struct editorSyntax *syntax;
     struct termios orig_termios;
+    char *backup_path;
 };
+void editorCreateBackup();
+void editorRestoreBackup(const char *filename);
 
 extern struct editorConfig E;
 
