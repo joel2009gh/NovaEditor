@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
+#include <backup.h>
 struct editorConfig E;
 
 void editorSetStatusMessage(const char *fmt, ...) {
