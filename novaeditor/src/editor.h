@@ -45,7 +45,6 @@ struct editorConfig {
     int numrows;
     erow *row;
     int dirty;
-    int mode;
     char *filename;
     char statusmsg[80];
     time_t statusmsg_time;
