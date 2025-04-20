@@ -7,7 +7,7 @@
 #include <termios.h>
 #include <errno.h>
 #include <string.h>
-#include <backup.h>
+#include "backup.h"
 
 void die(const char *s) {
     write(STDOUT_FILENO, "\x1b[2J", 4);
